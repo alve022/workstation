@@ -1,0 +1,31 @@
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.csproj.AssemblyReference.cache
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP_Server.Server.resources
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.csproj.GenerateResource.cache
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.AssemblyInfoInputs.cache
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.AssemblyInfo.cs
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.csproj.CoreCompileInputs.cache
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.deps.json
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.runtimeconfig.json
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.exe
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.exe
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.dll.config
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.deps.json
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.runtimeconfig.json
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCP Server.pdb
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\SuperSimpleTcp.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\System.Management.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\STL.CHATROOM.Domain.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.pdb
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\TCPClientApp.dll.config
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\bin\Debug\net7.0-windows\STL.CHATROOM.Domain.pdb
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.csproj.CopyComplete
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\refint\TCP Server.dll
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.pdb
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.genruntimeconfig.cache
+D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\ref\TCP Server.dll

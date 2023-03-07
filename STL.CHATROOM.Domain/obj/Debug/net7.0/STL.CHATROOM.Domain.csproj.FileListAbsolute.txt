@@ -1,0 +1,12 @@
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.deps.json
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.dll
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.pdb
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.csproj.AssemblyReference.cache
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.AssemblyInfoInputs.cache
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.AssemblyInfo.cs
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.csproj.CoreCompileInputs.cache
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.dll
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\refint\STL.CHATROOM.Domain.dll
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.pdb
+D:\PROJECT\TestProject\TCPClientApp\STL.CHATROOM.Domain\obj\Debug\net7.0\ref\STL.CHATROOM.Domain.dll

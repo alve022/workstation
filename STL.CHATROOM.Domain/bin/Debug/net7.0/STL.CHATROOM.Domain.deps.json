@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "STL.CHATROOM.Domain/1.0.0": {
+        "runtime": {
+          "STL.CHATROOM.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "STL.CHATROOM.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

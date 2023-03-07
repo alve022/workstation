@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "0YUTmpydLHd0A1QpJgOWIaESGYqNeWbbqb7GbjszErCrTIqKxma3hakHcRYRVUWXeTZSAGD6uLNG0iY++Rqg2Q==",
+  "success": true,
+  "projectFilePath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\supersimpletcp\\3.0.10\\supersimpletcp.3.0.10.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
