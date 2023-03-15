@@ -1,20 +1,37 @@
 using Microsoft.Win32;
+using System.Diagnostics;
+using System.Windows.Forms;
+
 namespace TCPClientApp
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
-        {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+        {           
+           
+            //RegistryKey regStlChatRoom = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            //regStlChatRoom.SetValue("STLChatRoom", Application.ExecutablePath.ToString());     
             ApplicationConfiguration.Initialize();
-            RegistryKey regStlChatRoom = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            regStlChatRoom.SetValue("STL Chat Room",Application.ExecutablePath.ToString());
-            Application.Run(new Client());
+            Application.Run(new Client()); 
+
         }
+
+        //public static Process Priorprocess()
+        //{  
+        //    Process proc = Process.GetCurrentProcess();
+        //    Process[] procs = Process.GetProcessesByName(proc.ProcessName);
+        //    foreach(Process p in procs)
+        //    {
+        //        if((p.Id !=proc.Id)&& (p.MainModule.FileName==proc.MainModule.FileName))
+        //        {
+        //            return p;
+                    
+        //        }
+        //    }
+        //    return null;
+        //}
+
     }
 }

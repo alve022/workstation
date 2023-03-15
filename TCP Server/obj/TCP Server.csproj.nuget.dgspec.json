@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj": {}
+    "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj": {}
   },
   "projects": {
-    "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
+    "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
+        "projectUniqueName": "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
         "projectName": "STL.CHATROOM.Domain",
-        "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
+        "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -64,12 +64,12 @@
         }
       }
     },
-    "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj": {
+    "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
+        "projectUniqueName": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
         "projectName": "TCP Server",
-        "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
+        "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\obj\\",
         "projectStyle": "PackageReference",
@@ -93,8 +93,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj": {
-                "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj"
+              "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj": {
+                "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj"
               }
             }
           }
@@ -141,12 +141,12 @@
         }
       }
     },
-    "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj": {
+    "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj",
+        "projectUniqueName": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj",
         "projectName": "TCPClientApp",
-        "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj",
+        "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\obj\\",
         "projectStyle": "PackageReference",
@@ -170,8 +170,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
-                "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj"
+              "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
+                "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj"
               }
             }
           }
@@ -186,6 +186,10 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2, )"

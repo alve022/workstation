@@ -35,6 +35,10 @@ namespace TCP_Server
             this.Invoke((MethodInvoker)delegate
             {                
                 string message = Encoding.UTF8.GetString(e.Data);
+
+                //byte[] b2 = Convert.FromBase64String(message);
+                //string aa = Encoding.BigEndianUnicode.GetString(b2);
+
                 ClsMessage msgObj = JsonSerializer.Deserialize<ClsMessage>(message);
                 if (msgObj.ACTION == ACTION.NAME)
                 {

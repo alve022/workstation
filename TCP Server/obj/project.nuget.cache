@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4aVB5t4bBFM7zKvEUUUEosdse0/pGMF3wJPrYVF0eLJVHvxnNTFaeFnEzo4fxTEARxQlcmg5WzutLoCeuviziQ==",
+  "dgSpecHash": "XGYgog+fFxeLG1cHr/q1ncimGmkMimeEtdy5mTNKJps3cXLYhD7D8SpUfrFXhcALtZC6ImreuVt/VBd//zVxJw==",
   "success": true,
-  "projectFilePath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
+  "projectFilePath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\supersimpletcp\\3.0.10\\supersimpletcp.3.0.10.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",

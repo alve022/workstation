@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BLNqQZKSxOJCMhIFBmuPmCd0RSlmiJLRTxhZmEmUItNvpBeBzwIxgPn5GFsq4st4vIRWUnZk/ZXqjxPIORP8IA==",
+  "dgSpecHash": "P07iQUO9YUdalPSM/H+3S2CB2YdImZY0i4arW5gXxhZCjaew0H658XgY4U59S5NFKvHtjO1xeA69FX63su/P+w==",
   "success": true,
-  "projectFilePath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
+  "projectFilePath": "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

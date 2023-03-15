@@ -7,13 +7,19 @@ using System.Text;
 using System.Text.Json;
 using static STL.CHATROOM.Domain.ENUM_LIST;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.Win32;
 
 namespace TCPClientApp
 {
     public partial class Client : Form
-    {       
+    {
+        RegistryKey regStlChatRoom = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+         
         public Client()
         {
+            regStlChatRoom.SetValue("STLChatRoom", Application.ExecutablePath.ToString());
             InitializeComponent();
         }
         SimpleTcpClient tcpclient;
@@ -50,8 +56,13 @@ namespace TCPClientApp
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
 
-            System.IO.File.Copy(sourceFile, destFile, true);
+            if(File.Exists(sourceFile))
+            {
+                System.IO.File.Copy(sourceFile, destFile, true);
+            }            
             //============================Copy Batch File to Appdata Folder============================
+
+
             this.ActiveControl = txtName;
             checkUpdate();            
         }
@@ -71,6 +82,10 @@ namespace TCPClientApp
         {
             this.Invoke((MethodInvoker)delegate {
                 string message = Encoding.UTF8.GetString(e.Data);
+
+                //byte[] b2 = Convert.FromBase64String(message);
+                //string aa= Encoding.BigEndianUnicode.GetString(b2);
+
                 ClsMessage msgObj = JsonSerializer.Deserialize<ClsMessage>(message);
                 if (msgObj.ACTION == ACTION.MESSAGE || msgObj.ACTION == ACTION.BUZZ)
                 {
@@ -79,6 +94,7 @@ namespace TCPClientApp
                     if (msgObj.ACTION == ACTION.BUZZ) {
                         buzzShake();
                     }
+
                     notifyIcon.BalloonTipText = "You have a Message from " + msgObj.USERNAME;
                     notifyIcon.ShowBalloonTip(2000);
 
@@ -101,7 +117,10 @@ namespace TCPClientApp
             {
                 if (!item.NAME.Contains(txtName.Text))
                 {
-                    listClientIP.Items.Add(item.NAME);
+                    if (item.NAME != "")
+                    {
+                        listClientIP.Items.Add(item.NAME);
+                    }
                 }
             }
             
@@ -156,9 +175,18 @@ namespace TCPClientApp
                         _msg.TO = string.Empty;
                         _msg.BODY = string.Empty;
                         _msg.USERNAME = txtName.Text;
-                        _msg.ACTION = ACTION.NAME;
-                        var jsonString = JsonSerializer.Serialize(_msg);
-                        SendData(jsonString);                                           
+                        _msg.ACTION = ACTION.NAME;                        
+
+                     string jsonString = JsonSerializer.Serialize(_msg);                   
+
+                    // byte[] b1 = Encoding.BigEndianUnicode.GetBytes(jsonString);
+                    // string encrypted = Convert.ToBase64String(b1);
+
+                    //byte[]  b2 = Convert.FromBase64String(encrypted);
+
+                    //string original = Encoding.BigEndianUnicode.GetString(b2);
+
+                    SendData(jsonString);
                     }
                     else
                     {
@@ -255,11 +283,11 @@ namespace TCPClientApp
 
         private void checkUpdate()
         {           
-            string programFiles = Environment.ExpandEnvironmentVariables("%ProgramW6432%");            
-            string sourcePath = programFiles + "\\STL\\STLCHATROOM";
+            //string programFiles = Environment.ExpandEnvironmentVariables("%ProgramW6432%");            
+            //string sourcePath = programFiles + "\\STL\\STLCHATROOM";
 
             string curentVersion= System.Configuration.ConfigurationSettings.AppSettings["CurrentVersion"];
-            var urlVersion = "http://localhost/update/newversion.txt";
+            var urlVersion = "http://192.168.4.52/stlchatroom/newversion.txt";
             var newVersion = (new WebClient().DownloadString(urlVersion));
 
             newVersion = newVersion.Replace(".", "");
@@ -269,8 +297,8 @@ namespace TCPClientApp
 
                 if (Convert.ToInt32(newVersion) > Convert.ToInt32(curentVersion))
                    {
-                        lblVersion.Text = curentVersion;
-                        lblNewVersion.Text = (new WebClient().DownloadString(urlVersion));
+                        lblVersion.Text ="Current Version:"+ curentVersion;
+                        lblNewVersion.Text = "New Version:" + newVersion; //(new WebClient().DownloadString(urlVersion));
                         btnUpdate.Enabled = true;
                         lblVersion.Show();
                         lblNewVersion.Show();
@@ -316,7 +344,7 @@ namespace TCPClientApp
 
             WebClient web = new WebClient();
             web.DownloadFileCompleted += Web_DownloadFileCompleted;
-            web.DownloadFileAsync(new Uri("http://localhost/update/update.msi"), dlocation);           
+            web.DownloadFileAsync(new Uri("http://192.168.4.52/stlchatroom/update.msi"), dlocation);           
         }
 
         private void Web_DownloadFileCompleted(object? sender, System.ComponentModel.AsyncCompletedEventArgs e)
@@ -342,7 +370,52 @@ namespace TCPClientApp
             }
         }
 
-       
+        private void Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                //e.Cancel = true;
+                //this.WindowState = FormWindowState.Minimized;
+                
+
+                //this.ShowInTaskbar = false;
+                //this.Hide();
+                //notifyIcon.Visible = true;
+                //notifyIcon.Icon = SystemIcons.Application;
+            }
+        }
+
+        private void notifyIcon_BalloonTipClicked(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon.Visible = false;
+        }
+        //protected override void WndProc(ref Message message)
+        //{
+        //    if (message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
+        //    {
+        //        ShowWindow();
+        //    }
+        //    base.WndProc(ref message);
+        //}
+        //public void ShowWindow()
+        //{
+        //    // Insert code here to make your form show itself.
+
+        //    if(this.WindowState == FormWindowState.Minimized)
+        //    {
+        //        this.WindowState = FormWindowState.Normal;
+        //        this.ShowInTaskbar = true;
+        //        notifyIcon.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        WinApi.ShowToFront(this.Handle);
+        //    }
+        //    //WinApi.ShowToFront(this.Handle);
+        //}
+
     }
     
 }

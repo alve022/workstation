@@ -29,3 +29,20 @@ D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\refint\T
 D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.pdb
 D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\TCP Server.genruntimeconfig.cache
 D:\PROJECT\TestProject\TCPClientApp\TCP Server\obj\Debug\net7.0-windows\ref\TCP Server.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.NET5.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\Xceed.Wpf.Toolkit.NET5.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\cs-CZ\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\de\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\es\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\fr\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\hu\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\it\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\ja-JP\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\pt-BR\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\ro\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\ru\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\sv\Xceed.Wpf.AvalonDock.NET5.resources.dll
+D:\PROJECT\TestProject\tcpclientapp\TCP Server\bin\Debug\net7.0-windows\zh-Hans\Xceed.Wpf.AvalonDock.NET5.resources.dll
