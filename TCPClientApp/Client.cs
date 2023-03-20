@@ -1,22 +1,21 @@
+using Microsoft.Win32;
 using STL.CHATROOM.Domain;
 using SuperSimpleTcp;
+using System.Drawing.Drawing2D;
 using System.Media;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using TCPClientApp.Properties;
 using static STL.CHATROOM.Domain.ENUM_LIST;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Microsoft.Win32;
 
 namespace TCPClientApp
 {
     public partial class Client : Form
     {
         RegistryKey regStlChatRoom = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-         
+
         public Client()
         {
             regStlChatRoom.SetValue("STLChatRoom", Application.ExecutablePath.ToString());
@@ -25,17 +24,20 @@ namespace TCPClientApp
         SimpleTcpClient tcpclient;
         List<OnlineUser> ClientLIst = new List<OnlineUser>();
         private void Form1_Load(object sender, EventArgs e)
-        {  
+        {
             txtIP.Text = System.Configuration.ConfigurationSettings.AppSettings["ClientIp"];
+
+            //String settingValue = Settings.Default.UserName;
+            txtName.Text = Settings.Default.UserName;
 
             tcpclient = new SimpleTcpClient(txtIP.Text);
             tcpclient.Events.Connected += Events_Connected;
             tcpclient.Events.DataReceived += Events_DataReceived;
             tcpclient.Events.Disconnected += Events_Disconnected;
-            
+
             btnSend.Enabled = false;
-            btnBuzz.Enabled = false;             
-           
+            btnBuzz.Enabled = false;
+
             lblVersion.Hide();
             lblNewVersion.Hide();
             txtMessage.Enabled = false;
@@ -44,7 +46,7 @@ namespace TCPClientApp
             listClientIP.ItemHeight = 30;
             listClientIP.IntegralHeight = false;
             listClientIP.Height = 334;
-            listClientIP.DrawMode=System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            listClientIP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
 
             //==================ListBox Design======================================    
             //============================Copy Batch File to Appdata Folder============================
@@ -56,15 +58,20 @@ namespace TCPClientApp
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
 
-            if(File.Exists(sourceFile))
+            if (File.Exists(sourceFile))
             {
                 System.IO.File.Copy(sourceFile, destFile, true);
-            }            
+            }
             //============================Copy Batch File to Appdata Folder============================
 
 
-            this.ActiveControl = txtName;
-            checkUpdate();            
+            this.ActiveControl = txtMessage;
+            checkUpdate();
+
+            if (txtName.Text != null && txtName.Text != "")
+            {
+                ConnectServer();
+            }
         }
         private void Events_Disconnected(object sender, ConnectionEventArgs e)
         {
@@ -74,24 +81,31 @@ namespace TCPClientApp
                 MessageBox.Show("User Name Exist Try Another !!!");
                 btnConnect.Enabled = true;
                 txtMessage.Enabled = false;
+                txtMessage.Enabled = false;
 
             });
         }
 
         private void Events_DataReceived(object sender, DataReceivedEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate {
+            this.Invoke((MethodInvoker)delegate
+            {
                 string message = Encoding.UTF8.GetString(e.Data);
-
-                //byte[] b2 = Convert.FromBase64String(message);
-                //string aa= Encoding.BigEndianUnicode.GetString(b2);
 
                 ClsMessage msgObj = JsonSerializer.Deserialize<ClsMessage>(message);
                 if (msgObj.ACTION == ACTION.MESSAGE || msgObj.ACTION == ACTION.BUZZ)
                 {
-                    
-                    txtInfo.Text += $"{msgObj.USERNAME} : {msgObj.BODY}{Environment.NewLine}";
-                    if (msgObj.ACTION == ACTION.BUZZ) {
+
+                    //========================Message Deencryption=============================          
+
+                    byte[] getEncryptedMsg = Convert.FromBase64String(msgObj.BODY);
+                    string originalMessage = Encoding.BigEndianUnicode.GetString(getEncryptedMsg);
+
+                    //===============================END=====================================
+
+                    txtInfo.Text += $"{msgObj.USERNAME} : {originalMessage}{Environment.NewLine}";
+                    if (msgObj.ACTION == ACTION.BUZZ)
+                    {
                         buzzShake();
                     }
 
@@ -107,7 +121,7 @@ namespace TCPClientApp
                 listClientIP.SelectedItems.Add(msgObj.USERNAME);
 
             });
-            
+
         }
 
         private void populateUserList()
@@ -123,7 +137,7 @@ namespace TCPClientApp
                     }
                 }
             }
-            
+
         }
 
         private void Events_Connected(object sender, ConnectionEventArgs e)
@@ -131,7 +145,7 @@ namespace TCPClientApp
             this.Invoke((MethodInvoker)delegate
             {
                 txtInfo.Text += $"You are connected.{Environment.NewLine}";
-                               
+
             });
 
         }
@@ -143,13 +157,21 @@ namespace TCPClientApp
                 {
                     ClsMessage _msg = new();
                     _msg.FROM = tcpclient.LocalEndpoint.ToString();
-                    _msg.TO = ClientLIst.Where(x=>x.NAME== listClientIP.SelectedItem.ToString()).FirstOrDefault().CLIENTIP;
-                    _msg.BODY = txtMessage.Text;
+                    _msg.TO = ClientLIst.Where(x => x.NAME == listClientIP.SelectedItem.ToString()).FirstOrDefault().CLIENTIP;
+
+                    //========================Message Encryption=============================
+
+                    byte[] getOriginalmsg = Encoding.BigEndianUnicode.GetBytes(txtMessage.Text);
+                    string encryptedMessage = Convert.ToBase64String(getOriginalmsg);
+
+                    //===============================END=====================================
+
+                    _msg.BODY = encryptedMessage;
                     _msg.USERNAME = txtName.Text;
                     _msg.ACTION = ACTION.MESSAGE;
                     var jsonString = JsonSerializer.Serialize(_msg);
-                    SendData(jsonString);                    
-                    txtInfo.Text += $"Me : {txtMessage.Text}{Environment.NewLine}";                    
+                    SendData(jsonString);
+                    txtInfo.Text += $"Me : {txtMessage.Text}{Environment.NewLine}";
                     txtMessage.Text = string.Empty;
                 }
             }
@@ -164,57 +186,57 @@ namespace TCPClientApp
         {
             try
             {
+                if (txtName.Text != null && txtName.Text != "")
+                {
+                    ConnectServer();
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Your Name");
+                }
 
-                    if (txtName.Text != null && txtName.Text != "")
-                    {
-                        tcpclient.Connect();
-                        btnConnect.Enabled = false;
-                        txtMessage.Enabled = true;
-                        ClsMessage _msg = new();
-                        _msg.FROM = tcpclient.LocalEndpoint.ToString();
-                        _msg.TO = string.Empty;
-                        _msg.BODY = string.Empty;
-                        _msg.USERNAME = txtName.Text;
-                        _msg.ACTION = ACTION.NAME;                        
-
-                     string jsonString = JsonSerializer.Serialize(_msg);                   
-
-                    // byte[] b1 = Encoding.BigEndianUnicode.GetBytes(jsonString);
-                    // string encrypted = Convert.ToBase64String(b1);
-
-                    //byte[]  b2 = Convert.FromBase64String(encrypted);
-
-                    //string original = Encoding.BigEndianUnicode.GetString(b2);
-
-                    SendData(jsonString);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Enter Your Name");
-                    }
-            
             }
             catch (Exception ex)
-            {              
+            {
                 MessageBox.Show("Server is not Started !!!!");
             }
+        }
+        private void ConnectServer()
+        {
+            tcpclient.Connect();
+            btnConnect.Enabled = false;
+            txtMessage.Enabled = true;
+            txtName.Enabled = false;
+            ClsMessage _msg = new();
+            _msg.FROM = tcpclient.LocalEndpoint.ToString();
+            _msg.TO = string.Empty;
+            _msg.BODY = string.Empty;
+            _msg.USERNAME = txtName.Text;
+            _msg.ACTION = ACTION.NAME;
+
+            string jsonString = JsonSerializer.Serialize(_msg);
+
+            Settings.Default.UserName = txtName.Text;
+            Settings.Default.Save();
+
+            SendData(jsonString);
         }
 
         private void listClientIP_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnSend.Enabled = true;
-            btnBuzz.Enabled = true;            
+            btnBuzz.Enabled = true;
         }
         private void Client_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.ShowInTaskbar = false;
-                notifyIcon.Visible = true;                
+                notifyIcon.Visible = true;
             }
         }
         private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
-        {           
+        {
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
             notifyIcon.Visible = false;
@@ -250,7 +272,7 @@ namespace TCPClientApp
                     _msg.USERNAME = txtName.Text;
                     _msg.ACTION = ACTION.BUZZ;
                     var jsonString = JsonSerializer.Serialize(_msg);
-                    SendData(jsonString);                    
+                    SendData(jsonString);
                     txtInfo.Text += $"Me: {_msg.BODY}{Environment.NewLine}";
                 }
             }
@@ -264,7 +286,7 @@ namespace TCPClientApp
             {
                 this.WindowState = FormWindowState.Normal;
                 this.ShowInTaskbar = true;
-                notifyIcon.Visible = false;                
+                notifyIcon.Visible = false;
             }
 
             for (int i = 0; i < 5; i++)
@@ -275,67 +297,66 @@ namespace TCPClientApp
                 System.Threading.Thread.Sleep(75);
 
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string soundlocation = Path.Combine(executableLocation, "messenger_buzz.wav");                
+                string soundlocation = Path.Combine(executableLocation, "messenger_buzz.wav");
                 SoundPlayer buzzSound = new SoundPlayer(soundlocation);
-                buzzSound.Play();                
+                buzzSound.Play();
             }
         }
 
         private void checkUpdate()
-        {           
-            //string programFiles = Environment.ExpandEnvironmentVariables("%ProgramW6432%");            
-            //string sourcePath = programFiles + "\\STL\\STLCHATROOM";
-
-            string curentVersion= System.Configuration.ConfigurationSettings.AppSettings["CurrentVersion"];
+        {
+            string curentVersion = System.Configuration.ConfigurationSettings.AppSettings["CurrentVersion"];
             var urlVersion = "http://192.168.4.52/stlchatroom/newversion.txt";
+            //var urlVersion = "C:\\xampp\\htdocs\\update\\newversion.txt";
             var newVersion = (new WebClient().DownloadString(urlVersion));
 
             newVersion = newVersion.Replace(".", "");
             curentVersion = curentVersion.Replace(".", "");
 
-            this.Invoke(new Action(() => {
+            this.Invoke(new Action(() =>
+            {
 
                 if (Convert.ToInt32(newVersion) > Convert.ToInt32(curentVersion))
-                   {
-                        lblVersion.Text ="Current Version:"+ curentVersion;
-                        lblNewVersion.Text = "New Version:" + newVersion; //(new WebClient().DownloadString(urlVersion));
-                        btnUpdate.Enabled = true;
-                        lblVersion.Show();
-                        lblNewVersion.Show();
-                        btnConnect.Hide();
-                        btnSend.Hide();
-                        btnBuzz.Hide();                        
+                {
+                    lblVersion.Text = "Current Version:" + curentVersion;
+                    lblNewVersion.Text = "New Version:" + newVersion; //(new WebClient().DownloadString(urlVersion));
+                    btnUpdate.Enabled = true;
+                    lblVersion.Show();
+                    lblNewVersion.Show();
+                    btnConnect.Hide();
+                    btnSend.Hide();
+                    btnBuzz.Hide();
 
-                    }
+                }
                 else
-                    {
-                        btnUpdate.Hide();
-                        lblVersion.Hide();
-                        lblNewVersion.Hide();
-                        btnConnect.Show();
-                        btnSend.Show ();
-                        btnBuzz.Show();
-                    }
-                }));
-           
+                {
+                    btnUpdate.Hide();
+                    lblVersion.Hide();
+                    lblNewVersion.Hide();
+                    btnConnect.Show();
+                    btnSend.Show();
+                    btnBuzz.Show();
+                }
+            }));
+
         }
         private void initScript()
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            string path = appDataFolder + @"\bat.bat";            
-            System.Diagnostics.Process p = new System.Diagnostics.Process();            
-            p.StartInfo.FileName = path;            
-            p.StartInfo.Arguments = "";            
+            string path = appDataFolder + @"\bat.bat";
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = path;
+            p.StartInfo.Arguments = "";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.Verb = "runas";           
-            p.Start();            
+            p.StartInfo.Verb = "runas";
+            p.Start();
             Environment.Exit(1);
 
         }
-        
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string path = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.Personal));
@@ -344,7 +365,7 @@ namespace TCPClientApp
 
             WebClient web = new WebClient();
             web.DownloadFileCompleted += Web_DownloadFileCompleted;
-            web.DownloadFileAsync(new Uri("http://192.168.4.52/stlchatroom/update.msi"), dlocation);           
+            web.DownloadFileAsync(new Uri("http://192.168.4.52/stlchatroom/update.msi"), dlocation);
         }
 
         private void Web_DownloadFileCompleted(object? sender, System.ComponentModel.AsyncCompletedEventArgs e)
@@ -366,7 +387,7 @@ namespace TCPClientApp
                 e.Graphics.FillRectangle(bb, e.Bounds);
                 string txt = listClientIP.Items[e.Index].ToString();
                 SolidBrush tb = new SolidBrush(e.ForeColor);
-                e.Graphics.DrawString(txt,e.Font,tb,listClientIP.GetItemRectangle(e.Index).Location);
+                e.Graphics.DrawString(txt, e.Font, tb, listClientIP.GetItemRectangle(e.Index).Location);
             }
         }
 
@@ -376,7 +397,7 @@ namespace TCPClientApp
             {
                 //e.Cancel = true;
                 //this.WindowState = FormWindowState.Minimized;
-                
+
 
                 //this.ShowInTaskbar = false;
                 //this.Hide();
@@ -417,5 +438,5 @@ namespace TCPClientApp
         //}
 
     }
-    
+
 }

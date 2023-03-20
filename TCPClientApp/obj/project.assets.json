@@ -317,11 +317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj",
+      "projectUniqueName": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj",
       "projectName": "TCPClientApp",
-      "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj",
+      "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\obj\\",
+      "outputPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -343,8 +343,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
-              "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj"
+            "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj": {
+              "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj"
             }
           }
         }

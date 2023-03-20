@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XGYgog+fFxeLG1cHr/q1ncimGmkMimeEtdy5mTNKJps3cXLYhD7D8SpUfrFXhcALtZC6ImreuVt/VBd//zVxJw==",
+  "dgSpecHash": "Lg9UkQUvrP0Y6C9im35+VqcK63L7HrGZ98D4fpl2uPIvYP01Xv43Cixzo6g3EVL93/YcfxfM0h+0G5f+L6+MGg==",
   "success": true,
-  "projectFilePath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
+  "projectFilePath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",

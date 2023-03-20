@@ -340,11 +340,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
+      "projectUniqueName": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
       "projectName": "TCP Server",
-      "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\TCP Server.csproj",
+      "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\TCP Server.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCP Server\\obj\\",
+      "outputPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCP Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -366,8 +366,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj": {
-              "projectPath": "D:\\PROJECT\\TestProject\\TCPClientApp\\TCPClientApp\\TCPClientApp.csproj"
+            "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj": {
+              "projectPath": "D:\\PROJECT\\TestProject\\tcpclientapp\\TCPClientApp\\TCPClientApp.csproj"
             }
           }
         }
