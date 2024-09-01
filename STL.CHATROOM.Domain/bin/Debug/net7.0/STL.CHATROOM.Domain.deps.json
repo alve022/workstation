@@ -7,8 +7,22 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "STL.CHATROOM.Domain/1.0.0": {
+        "dependencies": {
+          "Setup": "1.0.0"
+        },
         "runtime": {
           "STL.CHATROOM.Domain.dll": {}
+        }
+      },
+      "jQuery/2.1.1": {},
+      "SampleDependency/1.0.0": {
+        "dependencies": {
+          "jQuery": "2.1.1"
+        }
+      },
+      "Setup/1.0.0": {
+        "dependencies": {
+          "SampleDependency": "1.0.0"
         }
       }
     }
@@ -18,6 +32,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "jQuery/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/cy0NGAGBx0W6XLqrnehQAKeJhfnZLDdPnBvlNLq/k4mraD1a7rbHBYzV5PYBaz9t5wh+VrGhPUbPztvnFAOrQ==",
+      "path": "jquery/2.1.1",
+      "hashPath": "jquery.2.1.1.nupkg.sha512"
+    },
+    "SampleDependency/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rkrKnTI2KT/L+BaaB6/xZbDiqyQ702TxYp5adqgC/GYU7KBufnNArz/5KNetThpOeXmVEMg0VlFU+9/cKz0L4w==",
+      "path": "sampledependency/1.0.0",
+      "hashPath": "sampledependency.1.0.0.nupkg.sha512"
+    },
+    "Setup/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0ODk1syVzm5o5Q7dKa+Ybd6Eims7HUY9yzvsGyYQFVDQ+hiLG5/tvljT7yD6zH8j5LgC5ZxIX/BzzrrN9AQGEA==",
+      "path": "setup/1.0.0",
+      "hashPath": "setup.1.0.0.nupkg.sha512"
     }
   }
 }

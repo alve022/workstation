@@ -1,7 +1,6 @@
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.deps.json
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.dll
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\bin\Debug\net7.0\STL.CHATROOM.Domain.pdb
-D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.csproj.AssemblyReference.cache
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.AssemblyInfoInputs.cache
 D:\PROJECT\TestProject\tcpclientapp\STL.CHATROOM.Domain\obj\Debug\net7.0\STL.CHATROOM.Domain.AssemblyInfo.cs

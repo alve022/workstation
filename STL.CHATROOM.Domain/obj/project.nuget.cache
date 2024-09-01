@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BLNqQZKSxOJCMhIFBmuPmCd0RSlmiJLRTxhZmEmUItNvpBeBzwIxgPn5GFsq4st4vIRWUnZk/ZXqjxPIORP8IA==",
+  "dgSpecHash": "WpixEYf+O//345S4n8Qp/L8yZc/29UFzYSq1rnkvhAozH9+avtoIWRfT9hsDH3zASpT5+/Dfy7Rp5Rr7FelGWQ==",
   "success": true,
   "projectFilePath": "D:\\PROJECT\\TestProject\\tcpclientapp\\STL.CHATROOM.Domain\\STL.CHATROOM.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\jquery\\2.1.1\\jquery.2.1.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\sampledependency\\1.0.0\\sampledependency.1.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\setup\\1.0.0\\setup.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
